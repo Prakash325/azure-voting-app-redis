@@ -4,13 +4,13 @@ pipeline{
     stages{
         stage('Verify Branch'){
             steps{
-                sh(script: echo "${GIT_BRANCH}")
+                sh echo '$GIT_BRANCH'
             }
         }
 
         stage('Docker Build'){
             steps{
-                sh(script: 'docker images -a')
+                sh docker images -a
                 sh(script: """
                     cd azure-vote/
                     docker images -a
